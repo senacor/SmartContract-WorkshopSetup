@@ -4,7 +4,7 @@ This repo provides setup instructions for the Smart Contract workshops we provid
 ## Overview
 The setup we propose will provide you with an lubuntu machine (with GUI) that inclues all the necessary tools we use during the workshop. The machine is vagrant managed so you can adapt it to your needs, easily remove and recreate it.
 
-## Alternative setup possibilities
+### Alternative setup possibilities
 You can also setup everything locally (not recommended). If you want to do this you can use the `bootstrap.sh` script in the `scrips/provision-lubuntu` folder.
 
 ## Setup Requirements 

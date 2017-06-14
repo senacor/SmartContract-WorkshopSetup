@@ -1,7 +1,9 @@
 # SmartContract-Workshop
 
-If the workshop did not start yet then please follow the instructions in the ```before-workshop``` folder.
-If the workshop already started follow the instructions in the ```during-workshop``` folder.
+## Where to start
+
+If the workshop did not start yet then please follow the instructions in the [before-workshop folder](https://github.com/senacor/SmartContract-WorkshopSetup/tree/master/before-workshop).
+If the workshop already started follow the instructions in the [during-workshop folder](https://github.com/senacor/SmartContract-WorkshopSetup/tree/master/during-workshop).
 
 ## Workshop Information
 

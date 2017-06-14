@@ -7,10 +7,11 @@ It is assumed that you did the steps in the folder ```before-workshop``` already
 
 ### First startup of machine
 
-To run the machine you have to use the ```Vagrantfile``` and ```bootstrap.sh``` provisioning script that is provided in folder ```provision-ethdev```. 
+To run the machine you have to use the ```Vagrantfile``` and ```bootstrap.sh``` provisioning script provided in folder ```provision-ethdev```!
+Don't just run ```vagrant init``` with the ethdev machine, it will not provision as wanted. 
 
 1. Create an empty new folder. You can name it however you like, suggestion: ```EthereumWorkshop```
-2. Download the ```Vagrantfile``` and ```bootstrap.sh``` files into the new folder.
+2. Download the ```Vagrantfile``` and ```bootstrap.sh``` files from folder ```provision-ethdev``` into the new folder.
 3. Navigate to the folder in your local terminal (command line).
 4. run command: ```vagrant up```
 5. Wait until the command line output finishes (provisioning will be done headless).
@@ -73,7 +74,8 @@ The following tools are pre-installed in the ethdev machine:
 1. **[geth](https://geth.ethereum.org/)**: The Ethereum-go client
 2. **[remix browser-solidity](https://github.com/ethereum/browser-solidity)**: "IDE" to write, compile and deploy contracts (offle version installed). You find the online version here: https://ethereum.github.io/browser-solidity
 3. **[truffle framework](http://truffleframework.com/)**: A development framework for contracts and DApps.
-4. ** Sublime Text**: Installation includes the "ethereum package" that provides syntax highlighting for ```.sol``` files.
+4. **Sublime Text**: Installation includes the "ethereum package" that provides syntax highlighting for ```.sol``` files.
+5. **Chrome browse**: Unfortunately Firefox is not that good supported by browser-solidity, thus Chrome was added for better look and feel.
 
 ### Starting geth and syncing the Rinkeby testnet
 
@@ -171,18 +173,18 @@ npm run dev
 
 ### Running the Senacor Smart Contract Lottery
 
-A detailed description can be found in the SenacorSmartContractLottery's repo.
+A detailed description can be found in the [SenacorSmartContractLottery's repo](https://github.com/senacor/SmartContractSlackDapp).
 
 Quick-Guide:
 
 It is assumed that you already have an accout on the network you want to play, that holds Ether. This account will serve as the "admin-account". This is to be configured in the ```.env```file (see step 5 and 6).
-It is also assumed that you already created a slack team, a slack bot in that team and a google account used for sending messages.
+It is also assumed that you already created a slack team, a slack bot in that team and a google account used for sending the account emails.
 
 1. Start geth and sync chain.
 2. Expose geth's RPC: ```admin.startRPC("127.0.0.1", 8545, "*", "web3,net,eth,personal")```
-3. Open browser-solidity and connect to geth (select ```web3 Provider``` in dropdown)
+3. Open browser-solidity and connect to geth (select ```Web3 Provider``` in dropdown ```Execution environment``` in the ```Contract``` tab; confirm the 2 popups)
 4. Load, compile and deploy the ```Lottery.sol``` contract (you will also have to open ```LotteryEventDefinitions.sol``` in browser-solidity to be able to compile)
-5. Navigate to folder ```nodeserver/app/``` and create a file name: ```.env``` 
+5. Navigate to folder ```nodeserver/app/``` and create a file named: ```.env``` 
 6. Take a look at ```.env_example``` to configure your ```.env``` file.
 7. run ```npm install```
 8. run ```npm start```  

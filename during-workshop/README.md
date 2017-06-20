@@ -210,7 +210,7 @@ contract greeter is mortal {
 }
 ```
 
-**Challange:** Add another function that 
+**Challange:** Add another function that lets anyone in the network change the greeting.
 
 Here is the adapted example with the additional function that allows anyone to change the greeting:
 ```

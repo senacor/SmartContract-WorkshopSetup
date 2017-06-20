@@ -79,6 +79,17 @@ The following tools are pre-installed in the ethdev machine:
 4. **Sublime Text**: Installation includes the "ethereum package" that provides syntax highlighting for ```.sol``` files.
 5. **Chrome browse**: Unfortunately Firefox is not that good supported by browser-solidity, thus Chrome was added for better look and feel.
 
+### Important Links - in order of importance ;)
+
+- geth startup commands (command line options): https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options
+- geth JavaScript console commands: https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console
+- Info and transaction/address lookup on the testnet: https://rinkeby.etherscan.io/
+- Ethereum foundation website: https://www.ethereum.org
+- Ethereum blog: https://blog.ethereum.org/ 
+- Ethereum Stack-Exchange: https://ethereum.stackexchange.com/
+- Ethereum on reddit: https://www.reddit.com/r/ethereum/
+- Ethereum Classic: https://ethereumclassic.github.io/
+
 ### Starting geth and syncing the Rinkeby testnet
 
 Open terminal and run:

@@ -84,6 +84,7 @@ The following tools are pre-installed in the ethdev machine:
 - geth startup commands (command line options): https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options
 - geth JavaScript console commands: https://github.com/ethereum/go-ethereum/wiki/JavaScript-Console
 - Info and transaction/address lookup on the testnet: https://rinkeby.etherscan.io/
+- Solidity documentation: https://solidity.readthedocs.io
 - Ethereum foundation website: https://www.ethereum.org
 - Ethereum blog: https://blog.ethereum.org/ 
 - Ethereum Stack-Exchange: https://ethereum.stackexchange.com/
@@ -350,6 +351,8 @@ For simplicity you can just replace ```YOUR_ADDRESS``` with ```eth.coinbase```. 
 testrpc is a tool that simulates a ledger for you. It is used for testing contracts locally (unit testing).
 
 ### Truffle explained
+
+For details please refer to the [truffle documentation](http://truffleframework.com/docs/)!
 
 Create and empty folder for your (test) project and navigate to the new folder in your terminal.
 Open another terminal and run the ```testrpc```.

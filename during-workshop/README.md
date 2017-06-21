@@ -67,7 +67,9 @@ Note that this problem will just appear when you run the "vagrant up" command. A
 
 If you get the warning, that "the guest extensions on this machine do not match the installed version of VirtualBox" when you run "vagrant up" you should be able to ignoe it. Note that your shared folder (folder shared between host and guest machine) might not work properly - but that's not a big problem.
 
+#### "No provider found (...)" or similar error message
 
+If you receive an error on machine startup, that tells you that "no provided can be found" (or similar) then make sure you have the latest version of VirtualBox installed. 
 
 ## First Steps with Ethereum
 

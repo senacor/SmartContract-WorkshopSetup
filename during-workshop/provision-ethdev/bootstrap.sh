@@ -61,6 +61,7 @@ chown -R vagrant:vagrant "/home/vagrant/.config/"
 
 # create desktop shortcuts
 cp /usr/share/applications/sublime-text.desktop /home/vagrant/Desktop/
+cp /usr/share/applications/google-chrome.desktop /home/vagrant/Desktop/
 ln -s /home/vagrant/browser-solidity/ /home/vagrant/Desktop/
 ln -s /home/vagrant/repos/SmartContractSlackDapp/ /home/vagrant/Desktop/
 #ln -s /home/vagrant/.ethereum/ /home/vagrant/Desktop/

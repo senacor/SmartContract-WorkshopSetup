@@ -100,7 +100,7 @@ Open terminal and run:
 geth --rinkeby console
 ```
 
-If you want to pipe the log output to another terminal then open 2 terminals. Run ``ps`` in the first terminal and check the number you get. Then run this in the second terminal (where ```X``` is the terminal number you retrieved by the ```ps``` command in the first terminal):
+If you want to pipe the log output to another terminal then open 2 terminals. Run ``ps`` in the first terminal and check the number you get in the tty column (pts/2). Then run this in the second terminal (where ```X``` is the terminal number you retrieved by the ```ps``` command in the first terminal):
 ```
 geth --rinkeby console 2>>/dev/pts/X
 ```

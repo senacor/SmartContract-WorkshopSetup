@@ -5,6 +5,7 @@ This repo provides setup instructions for the Smart Contract workshops we provid
 
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
 2. Install VirtualBox Extensions: https://www.virtualbox.org/wiki/Downloads (click on the Extensions link and install the Extension pack)
+    * to install the extension start VirtualBox as admin/root and go to File->Settings->Extensions
 3. Install Vagrant: https://www.vagrantup.com/downloads.html 
 4. run this command in terminal: ```vagrant box add dakami/ethdev```
 

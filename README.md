@@ -19,4 +19,4 @@ This is what we do in the Blockchain & Smart Contract workshop:
 
 **Goal:** After the workshop participants are able to write smart contracts. They got a fist feeling what it means to develop smart contracts and learned what tools are available. Additionally participants know what a DApp is and how it is related to smart contracts. Through examples provided in the workshop participants are able to dig deeper on their own after the workshop. 
 
-Note that it depends on the workshop time and number of participants how much of the outline can really be done. The workshop is generally designed for one whole day, but can be extended to two days or longer. Workshops shorter than one day will include mostly the contract parts, the DApp part will be handled but only on the surfac
+Note that it depends on the workshop time and number of participants how much of the outline can really be done. The workshop is generally designed for one whole day, but can be extended to two days or longer. Workshops shorter than one day will include mostly the contract parts, the DApp part will be handled but only on the surface.

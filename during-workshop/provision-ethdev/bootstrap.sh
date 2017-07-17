@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+## install newest version of geth
+echo "##################################################"
+echo "Update geth to newest version"
+echo "##################################################"
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo add-apt-repository -y ppa:ethereum/ethereum-dev
+sudo apt-get update
+sudo apt-get -y install geth
+mkdir -p .ethereum/rinkeby/
+sudo chown -R vagrant:vagrant .ethereum/
+
 # get the SenacorSlackDapp project
 echo "##################################################"
 echo "CLONE: SenacorSlackDapp"

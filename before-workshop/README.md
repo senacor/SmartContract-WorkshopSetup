@@ -19,13 +19,22 @@ You can read this but you don't have to.
 
 ### Setup Requirements 
 
-The setup we propose will provide you with an lubuntu machine (with GUI) that inclues all the necessary tools we use during the workshop. 
+The setup we propose will provide you with an lubuntu machine (with GUI) that includes all the necessary tools we use during the workshop. 
 
 The machine is vagrant managed so you can adapt it to your needs, easily remove and recreate it.
 
 * About ~10GB of free disk space. 
 * VirtualBox
 * Vagrant
+
+### Troubleshooting
+
+#### Problem: "[...] error 104"
+
+This is a download error - hashicorp's vagrant cloud (previously "atlas server") and the connections to it are sometimes not that stable... 
+If you get this error it means that the connections was interrupted and the download was aborted. You can just run it again ("vagrant box add dakami/ethdev"); it should resume the download at the point where it stopped.
+
+Note: It might help to plug your computer by cable.
 
 ### Alternative setup possibilities
 You can also setup everything locally (not recommended) or alter the base machine we use.
@@ -43,10 +52,3 @@ Note: The machine includes a complete Ethereum development setup (truffle, testr
 Note: If box-download from hashicorp's atlas server is slow (below 500k is slow) then complain here: https://github.com/mitchellh/vagrant/issues/5319 
 
 If you want to do look into the `alternative-setup/provision-lubuntu` folder.
-
-### Troubleshooting
-
-#### Problem: "[...] error 104"
-
-This is a download error - hashicorp's atlas server and the connections to it are sometimes not that stable... If you get this it means that the connections was interrupted and the download was aborted. You can just run it again ("vagrant box add dakami/ethdev"); it should resume the download at the point where it stopped.
-Note: It might help to plug your computer by cable.

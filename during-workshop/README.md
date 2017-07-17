@@ -71,6 +71,25 @@ If you get the warning, that "the guest extensions on this machine do not match 
 
 If you receive an error on machine startup, that tells you that "no provided can be found" (or similar) then make sure you have the latest version of VirtualBox installed. 
 
+#### The setup is stuck ("hangs")
+
+Most important question: Are you on a Lenovo notebook?
+
+*If yes:* 
+
+Most likely your ["hardware virtualization" is deactivated in BIOS](https://stackoverflow.com/questions/34907910/vagrant-up-hangs-at-ssh-auth-method-private-key). 
+
+1. Access your BIOS and activate "hardware virtualization". 
+2. Try again, it should work now.
+
+*If no:*
+
+1. Check if you your internet connection works properly
+2. Wait for about ~5 minutes to see if an error appears.
+3. Once an error appears: google it
+
+All the "hang" we encountered so far were caused by the hardware virtualization deactivated problem.
+
 ## First Steps with Ethereum
 
 The following tools are pre-installed in the ethdev machine:

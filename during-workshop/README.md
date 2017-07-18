@@ -7,22 +7,20 @@ It is assumed that you did the steps in the folder ```before-workshop``` already
 
 ### First startup of machine
 
-To run the machine you have to use the ```Vagrantfile``` and ```bootstrap.sh``` provisioning script provided in folder ```provision-ethdev```!
+To run the machine you have to use the ```Vagrantfile``` and ```bootstrap.sh``` provisioning script provided in [SmartContractWorkshop-VM folder](https://github.com/senacor/SmartContract-WorkshopSetup/tree/master/during-workshop/SmartContractWorkshop-VM)!
 Don't just run ```vagrant init``` with the ethdev machine, it will not provision as wanted. 
 
-1. Create an empty new folder. You can name it however you like, suggestion: ```EthereumWorkshop```
-2. Download the ```Vagrantfile``` and ```bootstrap.sh``` files from folder ```provision-ethdev``` into the new folder.
-3. Navigate to the folder in your local terminal (command line).
-4. run command: ```vagrant up```
-5. Wait until the command line output finishes (provisioning will be done headless).
-6. run command: ```vagrant halt```
-7. Wait until the machine was "gracefully shut down"
-8. run command (again): ```vagrant up```
-9. The machine will start up with GUI now.
-10. Log in with password ```vagrant```
-11. Ignore the popup of sublime-text, wait until it closes itself.
+1. Clone this repository. 
+2. Navigate to folder ```SmartContractWorkshop-VM``` in your terminal.
+3. run command: ```vagrant up```
+4. Wait until the command line output finishes (provisioning will be done headless).
+5. run command: ```vagrant halt```
+6. Wait until the machine was "gracefully shut down"
+7. run command (again): ```vagrant up```
+8. The machine will start up with GUI now.
+9. Log in with password ```vagrant```
 
-Note: Intead of creating a new folder and downloading the files (step 1-3) you can also just clone this repo, navigate to the ```provision-ethdev``` folder and then go on with step 4.
+Note:  Instead of cloning the repository (step 1) you can also create an empty folder and copy the Vagrantfile and the bootstrap.sh file into it. Vagrant needs these 2 files to manage the machine.
 
 ### Startup and shutdown after first startup (including provisioning) is over
 
@@ -95,7 +93,7 @@ All the "hang" we encountered so far were caused by the hardware virtualization 
 The following tools are pre-installed in the ethdev machine:
 
 1. **[geth](https://geth.ethereum.org/)**: The Ethereum-go client
-2. **[remix browser-solidity](https://github.com/ethereum/browser-solidity)**: "IDE" to write, compile and deploy contracts (offle version installed, see ```~/browser-solidity/index.html```). You find the online version here: https://ethereum.github.io/browser-solidity
+2. **[remix browser-solidity](https://github.com/ethereum/browser-solidity)**: "IDE" to write, compile and deploy contracts (off-line version installed, see ```~/browser-solidity/index.html```). You find the online version here: https://ethereum.github.io/browser-solidity
 3. **[truffle framework](http://truffleframework.com/)**: A development framework for contracts and DApps.
 4. **Sublime Text**: Installation includes the "ethereum package" that provides syntax highlighting for ```.sol``` files.
 5. **Chrome browse**: Unfortunately Firefox is not that good supported by browser-solidity, thus Chrome was added for better look and feel.

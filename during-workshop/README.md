@@ -51,7 +51,7 @@ Remove a box from computer:
 vagrant box remove BOX_NAME [--box.version BOX_VERSION]
 ```
 
-Note: The box files are stored in the ```.vagrant.d``` folder in your user provile. The upacked VirtualBox machines are stored in VirtualBox's default VM folder. Usually that is the folder ```VirtualBox VMs``` in yor user profile.
+Note: The box files are stored in the ```.vagrant.d``` folder in your user provile. The unpacked VirtualBox machines are stored in VirtualBox's default VM folder. Usually that is the folder ```VirtualBox VMs``` in your user profile.
 
 ### Troubleshooting
 
@@ -186,9 +186,9 @@ admin.startRPC("127.0.0.1", 8545, "*", "web3,net,eth,personal")
 
 ### remix browser-solidity explained
 
-Browser-solidity is an IDE that allows you to (write, ) compile and deploy solidity code. Note that it does not offer code-complesion - it is a quite simple tool. If you want a better IDE for writing your code you can use the pre-installed sublime-text or you can install the text editor (or IDE) of your choice.
+Browser-solidity is an IDE that allows you to (write, ) compile and deploy solidity code. Note that it does not offer code-completion - it is a quite simple tool. If you want a better IDE for writing your code you can use the pre-installed sublime-text or you can install the text editor (or IDE) of your choice.
 
-What makes browser-solidity nice, is the possiblity to connect it to your local geth-client (or testrpc) by selecting ```Web3 Provider``` instead of ```JavaScript VM``` in the ```Execution environment``` section of the ```Contract``` tab in browser-solidity's management console.
+What makes browser-solidity nice, is the possibility to connect it to your local geth-client (or testrpc) by selecting ```Web3 Provider``` instead of ```JavaScript VM``` in the ```Execution environment``` section of the ```Contract``` tab in browser-solidity's management console.
 
 **IMPORTANT:** 
 
@@ -230,7 +230,7 @@ contract greeter is mortal {
 }
 ```
 
-**Challange:** Add another function that lets anyone in the network change the greeting.
+**Challenge:** Add another function that lets anyone in the network change the greeting.
 
 Here is the adapted example with the additional function that allows anyone to change the greeting:
 ```
@@ -341,7 +341,7 @@ The contract-definition is done by calling ```web3.eth.contract(CONTRACT_ABI)```
 
 The ABI defines the interface of your contract; it defines all function-signatures that the contract offers.
 
-With ```var greeter = greeterContract.new(...)``` you deploy the bytecode of your contract to the blockchain. This is called a "contract creation". After the contract was mined you can access the contract at the dedicated contract address that you recieved when you triggered the deployment transaction. The instance of the contract will then be held in the ```greeter``` variable.
+With ```var greeter = greeterContract.new(...)``` you deploy the byte-code of your contract to the blockchain. This is called a "contract creation". After the contract was mined you can access the contract at the dedicated contract address that you received when you triggered the deployment transaction. The instance of the contract will then be held in the ```greeter``` variable.
 
 If you want to retrieve an already existing instance of a contract you can use the ```at(CONTRACT_ADDRESS)``` function instead of ```new(...)```:
 ```
@@ -375,7 +375,7 @@ For details please refer to the [truffle documentation](http://truffleframework.
 
 Create and empty folder for your (test) project and navigate to the new folder in your terminal.
 Open another terminal and run the ```testrpc```.
-Note: You can also use any network that is synced by geth for deployment. But this is not recommended, because it is very time intensive. You should just deploy to a real network (e.g. rinkeby-testnet, main-net) when your contracts were already tested thouroughly on your local machine using testrpc.
+Note: You can also use any network that is synced by geth for deployment. But this is not recommended, because it is very time intensive. You should just deploy to a real network (e.g. rinkeby-testnet, main-net) when your contracts were already tested thoroughly on your local machine using testrpc.
 
 #### Project that includes contracts only
 
@@ -406,7 +406,7 @@ truffle test
 
 #### Project that includes contracts and DApp
 
-This setup includes the contract setup (as above) and additionally integrates a DApp with the conract setup.
+This setup includes the contract setup (as above) and additionally integrates a DApp with the contract setup.
 
 Setup with DApp:
 ```

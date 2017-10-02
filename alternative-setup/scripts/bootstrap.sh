@@ -2,10 +2,17 @@
 
 # IMORTANT you have to check the right version before running this!
 # For the future: add some kind of parser for this... (the install via npm somehow does not work...)
-BROWSERSOLIDITYVERSION='8f8ffa0'
+BROWSERSOLIDITYVERSION='ec522a1'
+
+# update and upgrade linux
+echo "##################################################"
+echo "Update&Upgrade: Ubuntu"
+echo "##################################################"
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
 
 # install curl and git
-sudo apt-get update
 sudo apt-get install -y curl git
 
 # install geth (Ethereum-Go, Command-Line client)
@@ -63,4 +70,19 @@ unzip remix-"$BROWSERSOLIDITYVERSION".zip
 rm remix-"$BROWSERSOLIDITYVERSION".zip
 cd ..
 sudo chown -R vagrant:vagrant browser-solidity/
+
+# update libnss for chrome
+echo "##################################################"
+echo "Reinstall: libnss3 for chrome"
+echo "##################################################"
+sudo apt-get install -y --reinstall libnss3
+
+echo "##################################################"
+echo "INSTALL: Chrome (works better with browser-solidity)"
+echo "##################################################"
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update
+sudo apt-get install -y google-chrome-stable
+cp /usr/share/applications/google-chrome.desktop /home/vagrant/Desktop/
 

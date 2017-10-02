@@ -383,7 +383,7 @@ In this setup you get an environment with contracts and tests for the contracts 
 
 Create the project:
 ```
-truffle init 
+truffle unbox 
 ```
 
 Truffle will tell you the commands you can use once the project was set up. Here they are for reference:
@@ -410,19 +410,13 @@ This setup includes the contract setup (as above) and additionally integrates a 
 
 Setup with DApp:
 ```
-truffle init webpack
+truffle unbox webpack
 ```
 
 The commands for running the contracts are the same as in the contract-only setup.
 
-Additionally you can run the DApp by doing:
-```
-npm run build
-```
+Additionally you get a DApp example set up that you can run in several profiles (lint, dev, build). For additional information check the documentation.
 
-```
-npm run dev
-```
 
 
 ### Running the Senacor Smart Contract Lottery

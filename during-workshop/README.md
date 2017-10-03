@@ -122,9 +122,9 @@ If you want to pipe the log output to another terminal then open 2 terminals. Ru
 geth --rinkeby console 2>>/dev/pts/X
 ```
 
-### Useful geth javascript-console commands
+#### Useful geth javascript-console commands
 
-#### Accounts
+##### Accounts
 
 Before you can do anything on the rinkeby testnet you need an account to operate.
 An account is basically just a key pair. The address of your account is derived from the public key of the account. The private key is encrypted with the password you provide. Create a new account like this:
@@ -164,7 +164,7 @@ If you want to see your balance in Ether you can wrap the command like this:
 web3.fromWei(eth.getBalance(eth.coinbase))
 ```
 
-#### Sending Transaction
+##### Sending Transaction
 
 If you want to send a mony transaction you can do that like this (standard unit for the value is in Wei!):
 ```
@@ -177,14 +177,14 @@ eth.sendTransaction({from: eth.coinbase, to: 'SOME_ADDRESS', value: web3.toWei(1
 ```
 
 
-#### geth RPC
+##### geth RPC
 
 Expose the geth RPC-interface (so it can be accessed by browser-solidity, etc.). Note that ```"web3,net,eth,personal"``` marks the modules that will be exposed. Usually you don't have to expose the ```personal``` module, but since we need it exposed for the DApp presented in the workshop it is part of the string here:
 ```
 admin.startRPC("127.0.0.1", 8545, "*", "web3,net,eth,personal")
 ```
 
-### remix browser-solidity explained
+### Remix browser-solidity explained
 
 Browser-solidity is an IDE that allows you to write, compile and deploy solidity code. In the most recent versions it even offers code completion now. Note that browser-solidity is not a full-blown IDE (like eclipse or IntelliJ IDEA) but it offers some nice features especially for Solidity programming. Feel free to install the text editor (or IDE) of your choice instead.
 

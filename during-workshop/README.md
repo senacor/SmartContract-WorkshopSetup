@@ -96,7 +96,7 @@ The following tools are pre-installed in the ethdev machine:
 2. **[remix browser-solidity](https://github.com/ethereum/browser-solidity)**: "IDE" to write, compile and deploy contracts (off-line version installed, see ```~/browser-solidity/index.html```). You find the online version here: https://ethereum.github.io/browser-solidity
 3. **[truffle framework](http://truffleframework.com/)**: A development framework for contracts and DApps.
 4. **Sublime Text**: Installation includes the "ethereum package" that provides syntax highlighting for ```.sol``` files.
-5. **Chrome browse**: Unfortunately Firefox is not that good supported by browser-solidity, thus Chrome was added for better look and feel.
+5. **Chrome Browser**: Unfortunately Firefox is not that good supported by browser-solidity, thus Chrome was added for better look and feel.
 
 ### Important Links - in order of importance ;)
 
@@ -186,9 +186,7 @@ admin.startRPC("127.0.0.1", 8545, "*", "web3,net,eth,personal")
 
 ### remix browser-solidity explained
 
-Browser-solidity is an IDE that allows you to (write, ) compile and deploy solidity code. Note that it does not offer code-completion - it is a quite simple tool. If you want a better IDE for writing your code you can use the pre-installed sublime-text or you can install the text editor (or IDE) of your choice.
-
-What makes browser-solidity nice, is the possibility to connect it to your local geth-client (or testrpc) by selecting ```Web3 Provider``` instead of ```JavaScript VM``` in the ```Execution environment``` section of the ```Contract``` tab in browser-solidity's management console.
+Browser-solidity is an IDE that allows you to write, compile and deploy solidity code. In the most recent versions it even offers code completion now. Note that browser-solidity is not a full-blown IDE (like eclipse or IntelliJ IDEA) but it offers some nice features especially for Solidity programming. Feel free to install the text editor (or IDE) of your choice instead.
 
 **IMPORTANT:** 
 
@@ -196,22 +194,47 @@ What makes browser-solidity nice, is the possibility to connect it to your local
 - However, parameters to functions are usually passed in Wei (unless you implement conversion in the contract)! 
 - Note that you will have to wrap long numbers passed as parameters with hyphans like this: ```"1000000000000000"```
 
+#### Deploying code to testrpc and testnet
+
+One feature that makes browser-solidity nice, is the possibility to connect it to your local geth-client (or testrpc) by selecting ```Web3 Provider``` instead of ```JavaScript VM``` in the ```Execution environment``` section of the ```Contract``` tab in browser-solidity's management console.
+
+#### Use browser solidity with your local computer's workspace
+
+Through the npm extension ```remixd``` you can create a link between a folder on your local disk and your offline solidity installation. Note that solidity has to be available offline. In the virtual machine this setup is provided.
+
+In order to create a link between your local contract folder and browser-solidity do this:
+
+1. Open a terminal and run: ```remixd -S [PATH_TO_CONTRACT_FOLDER]```, for the VM you can run: ```remixd -S /home/vagrant/repos/SmartContractSlackDapp/smart-contract/lottery/contracts```
+2. Navigate to the ```browser-solidity``` folder and open ```index.html``` in your Chrome browser.
+3. Wait until the page has properly loaded.
+4. Press the link icon ("Connect to localhost") in the toolbar ontop of the left sidebar.
+5. A pop-up window will open, press ```Connect```
+6. The link icon should turn green and the ```localhost``` folder should appear in the left sidebar.
+
+Note: The path has to be a real path and not a sym-link!
+
+Note: When you open a contract file it will auto-compile. Once you start editing the file the auto-compile functionality might be annoying as it might block the editor. You can just turn auto-compile off in the "Compile" tab of the left side-bar.
+
 
 ### "Hello-World" Solidity Contract: The Greeter
+
+The solidity compiler is the one most in use for the Ethereum EVM. There are other languages and other compilers but our tutorial is based on solidity. Checkout the [solidity documentation](http://solidity.readthedocs.io/en/latest/) for reference.
 
 One of the most common "Hello-World" examples is the ["Greeter" example offered on the website of the Ethereum foundation](https://www.ethereum.org/greeter)
 
 Here is the code of the Greeter example:
 ```
-contract mortal {
+pragma solidity ^0.4.5;
+
+contract mortal  {
     /* Define variable owner of the type address*/
     address owner;
 
     /* this function is executed at initialization and sets the owner of the contract */
-    function mortal() { owner = msg.sender; }
+    function mortal() public { owner = msg.sender; }
 
     /* Function to recover the funds on the contract */
-    function kill() { if (msg.sender == owner) selfdestruct(owner); }
+    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract greeter is mortal {
@@ -224,7 +247,7 @@ contract greeter is mortal {
     }
 
     /* main function */
-    function greet() constant returns (string) {
+    function greet() public constant returns (string) {
         return greeting;
     }
 }
@@ -234,15 +257,17 @@ contract greeter is mortal {
 
 Here is the adapted example with the additional function that allows anyone to change the greeting:
 ```
-contract mortal {
+pragma solidity ^0.4.5;
+
+contract mortal  {
     /* Define variable owner of the type address*/
     address owner;
 
     /* this function is executed at initialization and sets the owner of the contract */
-    function mortal() { owner = msg.sender; }
+    function mortal() public { owner = msg.sender; }
 
     /* Function to recover the funds on the contract */
-    function kill() { if (msg.sender == owner) selfdestruct(owner); }
+    function kill() public { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract greeter is mortal {
@@ -255,11 +280,11 @@ contract greeter is mortal {
     }
 
     /* main function */
-    function greet() constant returns (string) {
+    function greet() public constant returns (string) {
         return greeting;
     }
     
-    function changeGreeting(string _newGreeting) {
+    function changeGreeting(string _newGreeting) public {
         greeting = _newGreeting;
     }
 }
@@ -268,12 +293,12 @@ contract greeter is mortal {
 It is recommended to use browser-solidity to compile the contract. This will give you the following deployment code in the browser-solidity "contract" tab of the management console:
 ```
 var _greeting = /* var of type string here */ ;
-var greeterContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_newGreeting","type":"string"}],"name":"changeGreeting","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"payable":false,"type":"constructor"}]);
+var greeterContract = web3.eth.contract([{"constant":false,"inputs":[],"name":"kill","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_newGreeting","type":"string"}],"name":"changeGreeting","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"}]);
 var greeter = greeterContract.new(
    _greeting,
    {
      from: web3.eth.accounts[0], 
-     data: '0x6060604052341561000c57fe5b6040516104d13803806104d1833981016040528080518201919050505b5b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b806001908051906020019061008292919061008a565b505b5061012f565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100cb57805160ff19168380011785556100f9565b828001600101855582156100f9579182015b828111156100f85782518255916020019190600101906100dd565b5b509050610106919061010a565b5090565b61012c91905b80821115610128576000816000905550600101610110565b5090565b90565b6103938061013e6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610051578063cfae321714610063578063d28c25d4146100fc575bfe5b341561005957fe5b610061610156565b005b341561006b57fe5b6100736101ea565b60405180806020018281038252838181518152602001915080519060200190808383600083146100c2575b8051825260208311156100c25760208201915060208101905060208303925061009e565b505050905090810190601f1680156100ee5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010457fe5b610154600480803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091905050610293565b005b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101e757600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5b565b6101f26102ae565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102885780601f1061025d57610100808354040283529160200191610288565b820191906000526020600020905b81548152906001019060200180831161026b57829003601f168201915b505050505090505b90565b80600190805190602001906102a99291906102c2565b505b50565b602060405190810160405280600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061030357805160ff1916838001178555610331565b82800160010185558215610331579182015b82811115610330578251825591602001919060010190610315565b5b50905061033e9190610342565b5090565b61036491905b80821115610360576000816000905550600101610348565b5090565b905600a165627a7a723058206d7215a3c178eae9bf6eed3ccd1b9c81f113d03e42ac30d93d3261d19b5888ca0029', 
+     data: '0x6060604052341561000f57600080fd5b6040516104c73803806104c783398101604052808051820191905050336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508060019080519060200190610081929190610088565b505061012d565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106100c957805160ff19168380011785556100f7565b828001600101855582156100f7579182015b828111156100f65782518255916020019190600101906100db565b5b5090506101049190610108565b5090565b61012a91905b8082111561012657600081600090555060010161010e565b5090565b90565b61038b8061013c6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b514610053578063cfae321714610068578063d28c25d4146100f657600080fd5b341561005e57600080fd5b610066610153565b005b341561007357600080fd5b61007b6101e4565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100bb5780820151818401526020810190506100a0565b50505050905090810190601f1680156100e85780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b341561010157600080fd5b610151600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061028c565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101e2576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b565b6101ec6102a6565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156102825780601f1061025757610100808354040283529160200191610282565b820191906000526020600020905b81548152906001019060200180831161026557829003601f168201915b5050505050905090565b80600190805190602001906102a29291906102ba565b5050565b602060405190810160405280600081525090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106102fb57805160ff1916838001178555610329565b82800160010185558215610329579182015b8281111561032857825182559160200191906001019061030d565b5b509050610336919061033a565b5090565b61035c91905b80821115610358576000816000905550600101610340565b5090565b905600a165627a7a723058206a503d970fe4c7605bc3f7a55f437bfd8e2d957aa3666f7d1d23aa30d06fc4eb0029', 
      gas: '4700000'
    }, function (e, contract){
     console.log(e, contract);
@@ -423,7 +448,14 @@ Additionally you get a DApp example set up that you can run in several profiles 
 
 A detailed description can be found in the [SenacorSmartContractLottery's repo](https://github.com/senacor/SmartContractSlackDapp).
 
-Quick-Guide:
+Quick-Guide for the lotter contract:
+
+The lottery contract is located in the folder ```SmartContractSlackDapp/smart-contract/lottery/contracts```. The contract project is set up as truffle project, you can use ```truffle compile```, ```truffle migrate``` and ```truffle test``` in the folder ```SmartContractSlackDapp/smart-contract/lottery```.
+
+```Lottery.sol``` contains the lottery contract, ```LotteryEventDefition```  the events defined for the contracts. The ```Migrations.sol``` file is part of the truffle setup.
+
+
+#### Setting up and running the DApp
 
 It is assumed that you already have an accout on the network you want to play, that holds Ether. This account will serve as the "admin-account". This is to be configured in the ```.env```file (see step 5 and 6).
 It is also assumed that you already created a slack team, a slack bot in that team and a google account used for sending the account emails.
@@ -435,4 +467,5 @@ It is also assumed that you already created a slack team, a slack bot in that te
 5. Navigate to folder ```nodeserver/app/``` and create a file named: ```.env``` 
 6. Take a look at ```.env_example``` to configure your ```.env``` file.
 7. run ```npm install```
-8. run ```npm start```  
+8. run ```npm start```
+

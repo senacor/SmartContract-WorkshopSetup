@@ -71,6 +71,11 @@ rm remix-"$BROWSERSOLIDITYVERSION".zip
 cd ..
 sudo chown -R vagrant:vagrant browser-solidity/
 
+echo "##################################################"
+echo "INSTALL: browser-solidity-localhost support"
+echo "##################################################"
+sudo npm install -g remixd
+
 # update libnss for chrome
 echo "##################################################"
 echo "Reinstall: libnss3 for chrome"

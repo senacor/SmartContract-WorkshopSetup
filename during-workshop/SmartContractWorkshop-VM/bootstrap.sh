@@ -11,20 +11,28 @@ sudo apt-get -y install geth
 mkdir -p .ethereum/rinkeby/
 sudo chown -R vagrant:vagrant .ethereum/
 
-# get the SenacorSlackDapp project
+# clone all repos
 echo "##################################################"
 echo "CLONE: SenacorSlackDapp"
 echo "##################################################"
 mkdir repos
 cd repos
 git clone https://github.com/senacor/SmartContractSlackDapp.git
+echo "##################################################"
+echo "CLONE: greeter"
+echo "##################################################"
+git clone https://github.com/da-kami/ethereum-greeter.git
 
 echo "##################################################"
-echo "Make vagrant user owner of the repo"
+echo "Make vagrant user owner of the repo and add shortcuts"
 echo "##################################################"
 cd /home/vagrant/
 sudo chown -R vagrant:vagrant repos
 sudo chown -R vagrant:vagrant repos/SmartContractSlackDapp/.git
+sudo chown -R vagrant:vagrant repos/ethereum-greeter/.git
+ln -s /home/vagrant/repos/SmartContractSlackDapp/ /home/vagrant/Desktop/
+ln -s /home/vagrant/repos/ethereum-greeter/ /home/vagrant/Desktop/
+chown -R vagrant:vagrant /home/vagrant/Desktop/
 
 # install sublime text (optional - if you no like then comment it)
 echo "##################################################"
@@ -65,7 +73,6 @@ chown -R vagrant:vagrant "/home/vagrant/.config/"
 
 # create desktop shortcuts
 ln -s /home/vagrant/browser-solidity/ /home/vagrant/Desktop/
-ln -s /home/vagrant/repos/SmartContractSlackDapp/ /home/vagrant/Desktop/
 #ln -s /home/vagrant/.ethereum/ /home/vagrant/Desktop/
 #mv /home/vagrant/Desktop/.ethereum /home/vagrant/Desktop/ethereum
 chown -R vagrant:vagrant /home/vagrant/Desktop/

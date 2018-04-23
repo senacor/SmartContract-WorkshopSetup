@@ -27,6 +27,14 @@ The machine is vagrant managed so you can adapt it to your needs, easily remove 
 * VirtualBox
 * Vagrant
 
+### Keyboard layout
+
+If you are using a Macbook or another computer with a specific keyboard layout you might want to change the virtual machine's keyboard layout accordingly. We are using a linux distribution called Lubuntu. In order to change the keyboard layout on Lubuntu follow these steps:
+
+1. Right click the panel at the left bottom
+2. Add Panel Items
+3. Keyboard Layout Handler
+
 ### Troubleshooting
 
 #### Problem: "[...] error 104"

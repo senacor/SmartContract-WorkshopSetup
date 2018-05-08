@@ -72,9 +72,6 @@ chown -R vagrant:vagrant "/home/vagrant/.config/"
 # Note: starting sublime-text (using subl) in command line does not work (just fails)
 
 # create desktop shortcuts
-ln -s /home/vagrant/browser-solidity/ /home/vagrant/Desktop/
-#ln -s /home/vagrant/.ethereum/ /home/vagrant/Desktop/
-#mv /home/vagrant/Desktop/.ethereum /home/vagrant/Desktop/ethereum
 chown -R vagrant:vagrant /home/vagrant/Desktop/
 
 # add autostart folder

@@ -2,7 +2,7 @@
 
 # IMORTANT you have to check the right version before running this!
 # For the future: add some kind of parser for this... (the install via npm somehow does not work...)
-BROWSERSOLIDITYVERSION='ec522a1'
+# BROWSERSOLIDITYVERSION='ec522a1'
 
 # update and upgrade linux
 echo "##################################################"
@@ -53,24 +53,19 @@ echo "INSTALL: truffle"
 echo "##################################################"
 npm install -g truffle
 
-# install testrpc
+# install ganache-cli
 echo "##################################################"
-echo "INSTALL: testrpc"
+echo "INSTALL: ganache-cli (former testrpc)"
 echo "##################################################"
-npm install -g ethereumjs-testrpc
+npm install -g ganache-cli
 
 # install browser solidity locally to have a stable offline environment
 echo "##################################################"
-echo "INSTALL: browser-solidity"
+echo "INSTALL: remix-ide"
 echo "##################################################"
-mkdir browser-solidity
-cd browser-solidity
-wget 'https://github.com/ethereum/browser-solidity/raw/gh-pages/remix-'"$BROWSERSOLIDITYVERSION"'.zip'
-unzip remix-"$BROWSERSOLIDITYVERSION".zip
-rm remix-"$BROWSERSOLIDITYVERSION".zip
-cd ..
-sudo chown -R vagrant:vagrant browser-solidity/
+npm install -g remix-ide
 
+# NOTE: Most likely not needed, but not removed yet
 echo "##################################################"
 echo "INSTALL: browser-solidity-localhost support"
 echo "##################################################"

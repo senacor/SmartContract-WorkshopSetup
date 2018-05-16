@@ -4,7 +4,7 @@ This repo provides setup instructions for the Smart Contract workshops we provid
 ## Do the 4-step setup
 
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
-2. Install VirtualBox Extensions: https://www.virtualbox.org/wiki/Downloads (click on the Extensions link and install the Extension pack)
+2. Install VirtualBox Extension Pack: https://www.virtualbox.org/wiki/Downloads (click on the Extensions link and save the Extension pack file)
     * to install the extension start VirtualBox as admin/root and go to File->Settings->Extensions
 3. Install Vagrant: https://www.vagrantup.com/downloads.html 
 4. run this command in terminal: ```vagrant box add dakami/ethdev```
@@ -27,15 +27,16 @@ The machine is vagrant managed so you can adapt it to your needs, easily remove 
 * VirtualBox
 * Vagrant
 
-### Keyboard layout
+### Troubleshooting
+
+#### Keyboard layout
 
 If you are using a Macbook or another computer with a specific keyboard layout you might want to change the virtual machine's keyboard layout accordingly. We are using a linux distribution called Lubuntu. In order to change the keyboard layout on Lubuntu follow these steps:
 
 1. Right click the panel at the left bottom
 2. Add Panel Items
 3. Keyboard Layout Handler
-
-### Troubleshooting
+4. Add new keyboard layout -> select "Mac Laptop" keyboard
 
 #### Problem: "[...] error 104"
 
@@ -47,15 +48,15 @@ Note: It might help to plug your computer by cable.
 ### Alternative setup possibilities
 You can also setup everything locally (not recommended) or alter the base machine we use.
 
-Note: You should calculate an additional ~2GB for syncing the rinkeby testnet (will be done together in the workshop).
+Note: You should calculate an additional ~6GB for syncing the rinkeby testnet (will be done together in the workshop).
 
 Setup was tested on: Windows10 machine, Mac
 
 ### Notes and further instructions
 
-Note: We will only use the Rinkeby testnet (and local testrpc) in the workshop, so you don't have to worry too much about long synchronization times when syncing the net. I don't integrate the prod-chain in my dev-environments. I have a machine on AWS for handling that. More later ;) 
+Note: We will only use the Rinkeby testnet (and local testrpc) in the workshop, so you don't have to worry too much about long synchronization times when syncing the net. Usually, production-chains should not be accessible from the dev-environment. Just imagine forgetting to switch networks and spending ether on mainchain ;) An AWS instance may be used to handle this problem, but there are also other possibilities you will hear about in the workshop :)
 
-Note: The machine includes a complete Ethereum development setup (truffle, testrpc, geth). Not testnets synced yet - this we can do together in the workshop. 
+Note: The machine includes a complete Ethereum development setup (truffle, testrpc, geth). Testnets are not synced yet - we will do this together in the workshop. 
 
 Note: If box-download from hashicorp's atlas server is slow (below 500k is slow) then complain here: https://github.com/mitchellh/vagrant/issues/5319 
 
